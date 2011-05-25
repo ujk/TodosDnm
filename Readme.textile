@@ -39,9 +39,21 @@ dönmüş olarak tarayıcıda görebiliriz.
 
 !/images/readme_1.png!:/images/readme_1.png
 
-Evet, sıra geldi *Github*'da projemizi paylaşmaya. Github'a kullanıcı girişi
+Evet, sıra geldi *Github* 'da projemizi paylaşmaya. Github'a kullanıcı girişi
 yapıp yakışıklı *New Repository* butonunu tıklıyoruz ve _Todos_ isimli bir 
 depo oluşturuyoruz.
 
 Şimdi uygulama klasöründe bir terminal açıp sırayla şu komutları giriyoruz :
+
+<pre>
+$ git init
+$ git add .
+$ git commit -m "ilk tasarım"
+$ git remote add origin git@github.com:_username_/todos.git
+$ git push -u origin master
+</pre>
+
+Artık uygulamanın bir kopyasını hem kendiniz hem başkaları kullanabilsin 
+diye *github* 'a koymuş olduk. Ben burdan sonra _git gui_ kullanmaya başlıyorum, 
+siz isterseniz konsoldan devam edebilirsiniz.
 
