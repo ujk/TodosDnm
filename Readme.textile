@@ -1,0 +1,47 @@
+h1. Bir todo uygulaması yapalım
+
+Önce terminalde yeni *rails* uygulamamızı üretelim.
+
+@$ rails new todos@
+
+Sonra bu textile dosyası için uygulama klasörü içinde _Readme.textile_ adında 
+bir dosya açalım ve textile şeklinde şu gördüğünüz satırları yazmaya başlayalım.
+
+Textile dosyaları html formata döndürmek için uygulamamızda *RedCloth* gem
+yüklü olmalıdır. Bunun için *Gemfile* dosyası içine şu satırı ekliyoruz.
+
+@gem 'RedCloth'@
+
+Sıra geldi bu _Readme.textile_ dosyasını gösterecek bir sayfa üretmeye. 
+Bir _home#index_ sayfası üretelim. Konsoldan şunu girelim :
+
+@$ rails g controller home index@
+
+Şimdi @app/views/home/index.html.erb@ dosyasının içini şöyle bir değiştirelim.
+
+
+@<h4>Readme.textile</h4>@
+@<%= raw(RedCloth.new(IO.read("Readme.textile")).to_html) %>@
+
+Bir de root adresi olarak _home/index_ sayfasının default gelmesi için, 
+@config/routes.rb@ dosyası içine şu satırı ekleyelim ve @public/index.html@ 
+dosyasını silelim.
+
+<pre>	root :to => "home#index"</pre>
+
+Artık _readme_ dosyası için herşey hazır. _Readme.textile_ dosyasına birşeyler 
+yazıp serveri çalıştıralım.
+
+@$ rails s@
+
+@localhost:3000@ adresini tarayıcımızda açarsak textile dosyamızı html formata
+dönmüş olarak tarayıcıda görebiliriz.
+
+!/images/readme_1.png!:/images/readme_1.png
+
+Evet, sıra geldi *Github*'da projemizi paylaşmaya. Github'a kullanıcı girişi
+yapıp yakışıklı *New Repository* butonunu tıklıyoruz ve _Todos_ isimli bir 
+depo oluşturuyoruz.
+
+Şimdi uygulama klasöründe bir terminal açıp sırayla şu komutları giriyoruz :
+
