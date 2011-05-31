@@ -1,3 +1,6 @@
+Bu readme dosyasını resimleriyle birlikte görüntülemek için uygulamayı 
+klonlayıp yerelde çalıştırın ve @localhost:3000@ adresine bakın.
+
 h1. Bir todo uygulaması yapalım
 
 Önce terminalde yeni *rails* uygulamamızı üretelim.
@@ -56,4 +59,26 @@ $ git push -u origin master
 Artık uygulamanın bir kopyasını hem kendiniz hem başkaları kullanabilsin 
 diye *github* 'a koymuş olduk. Ben burdan sonra _git gui_ kullanmaya başlıyorum, 
 siz isterseniz konsoldan devam edebilirsiniz.
+
+Şimdi todolar için bir tablo üreterek veritabanına bulaşalım.
+
+<pre>$ rails g scaffold Todo name:string parent:integer user_name:string 
+category:string done:boolean order:integer</pre>
+
+İşte bu istediğimiz tablonun veritabanında oluşturulması için konsoldan :
+
+<pre>$ rake db:migrate</pre>
+
+komutu sonrası tablomuzun üretildiğine dair mesajları görebiliriz. Şimdi 
+@rails s@ komutuyla serverimizi çalıştırıp @http://localhost:3000/todos@ 
+adresine bakarsak todo listemizi görebiliriz. 
+
+!/images/readme_2.png!:/images/readme_2.png
+
+Birkaç tane todo ekleyelim de görselleri düzenlemelek için elimizde todo 
+bulunsun. Haydi @New Todo@ bağlantısına tıklayıp todolarımızı ekleyelim. 
+şimdilik sadece name, user_name ve order alanlarını dolduralım ilerledikçe 
+düzenleriz. Önce görsel biraz çıksın ortaya.
+
+!/images/readme_3.png!:/images/readme_3.png
 
